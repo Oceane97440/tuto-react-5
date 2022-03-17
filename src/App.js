@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Vegeta from './components/Vegeta';
 import Goku from './components/Goku'
 import Frieza from './components/Frieza';
+import ErrorBoundary from './components/ErrorBoundary';
 import './App.css';
 
 class App extends Component {
@@ -37,9 +38,19 @@ class App extends Component {
         <h1>Goku VS Vegeta</h1>
         <hr />
         <div className='row'>
+      
+          <ErrorBoundary>
           <Vegeta message="Vegeta" life={this.state.vegeta} reduceHanler={this.reduceLife}/>
+        
+          </ErrorBoundary>
+          <ErrorBoundary>
           <Goku message="Goku" life={this.state.goku} reduceHanler={this.reduceLife}/>
+          </ErrorBoundary>
+
+          <ErrorBoundary>
           <Frieza/>
+
+          </ErrorBoundary>
         </div>
       </div>
     );
